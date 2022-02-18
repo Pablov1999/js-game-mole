@@ -1,0 +1,38 @@
+@media screen and (min-width: 640px) {
+    .game {
+      width: 600px;
+    }
+  
+    .game .holes > div {
+      width: 200px;
+      height: 200px;
+    }
+  
+    .game .holes .mole {
+      width: 134px;
+      height: 182px;
+    }
+  
+    .game .holes > div::after {
+      height: 70px;
+    }
+  
+    .game .holes .mole::after {
+      width: 135px;
+      height: 180px;
+    }
+  }
+  
+  @media screen and (min-width: 800px) {
+    .game {
+      min-height: 100vh;
+    }
+  
+    .game h1 {
+      font-size: 48px;
+    }
+    .game {
+      width: 800px;
+    }
+  }
+  
