@@ -1,0 +1,207 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: rgb(189, 230, 189);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+  }
+  
+  p {
+    margin-top: 0;
+  }
+  
+  .game {
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .game h1 {
+    font-size: 36px;
+    font-family: "Architects Daughter", cursive;
+  }
+  
+  .game h1::after {
+    content: "";
+    display: block;
+    background: url("../assets/svg/mole.svg") center bottom no-repeat;
+    background-position: top;
+    background-size: contain;
+    width: 100px;
+    height: 100px;
+    margin: 30px auto;
+  }
+  
+  .game.is-started h1::after {
+    display: none;
+  }
+  
+  .game .dashboard {
+    margin-bottom: 50px;
+  }
+  
+  .game .stats {
+    line-height: 28px;
+    opacity: 0;
+    transition: opacity 1s;
+  }
+  
+  .game.is-in-progress .stats {
+    opacity: 1;
+  }
+  
+  .game .holes {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 20px;
+    row-gap: 40px;
+    flex-wrap: wrap;
+    margin: 0 0 40px;
+  }
+  
+  .game .holes > div {
+    width: 105px;
+    height: 130px;
+    /* background: chocolate; */
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .game .holes > div::after {
+    content: "";
+    background: url("../assets/svg/ground.svg") center bottom no-repeat;
+    width: 100%;
+    height: 40px;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+  }
+  
+  .game .holes .mole {
+    width: 105px;
+    height: 121px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .game .holes .mole::after {
+    content: "";
+    background: url("../assets/svg/mole.svg") center bottom no-repeat;
+    background-size: contain;
+    width: 88px;
+    height: 120px;
+    display: block;
+    position: absolute;
+    bottom: -200px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    transition: bottom 0.4s;
+    cursor: pointer;
+  }
+  
+  .game .holes .active .mole::after {
+    bottom: 0px;
+  }
+  
+  .game .holes .hit .mole::after {
+    background-image: url("../assets/svg/mole-hit.svg");
+  }
+  
+  button {
+    background-color: #e91e63;
+    border: 0;
+    padding: 10px 22px;
+    border-radius: 4px;
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+  }
+  
+  .start-button {
+    background-color: #0105f0;
+  }
+  .next-round-button {
+    background-color: #e91e63;
+    padding: 15px 20px;
+    font-size: 26px;
+  }
+  
+  .game-wrapper {
+    display: none;
+  }
+  
+  .is-started .game-wrapper {
+    display: block;
+  }
+  
+  .buttons-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .is-started .buttons-wrapper {
+    display: none;
+  }
+  
+  .well-done {
+    display: none;
+    font-size: 42px;
+  }
+  
+  .is-finished .well-done {
+    display: block;
+  }
+  
+  .is-finished .round {
+    display: none;
+  }
+  
+  .is-finished .score {
+    font-size: 36px;
+  }
+  
+  @keyframes loader {
+    100% {
+      font-size: 148px;
+    }
+  }
+  
+  .loader {
+    position: absolute;
+    font-size: 40px;
+    z-index: 1;
+    color: #fff;
+    text-shadow: 0px 0px 6px black;
+  }
+  
+  .loader-animation {
+    animation: loader 1s;
+    animation-fill-mode: forwards;
+  }
+  
+  .round-done {
+    display: none;
+  }
+  
+  .round-is-finished .buttons-wrapper,
+  .round-is-finished .dashboard {
+    display: none;
+  }
+  
+  .round-is-finished .round-done {
+    display: block;
+    padding: 0 20px;
+    font-size: 30px;
+  }
+  
